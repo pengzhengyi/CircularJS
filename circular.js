@@ -69,7 +69,10 @@
         if (!unit) {
             if (pi) {
                 unit = 'rad';
-            } else if (parseFloat(angle) > 2 * Math.PI) {
+                if (!angle) {
+                    angle = 1;
+                }
+            } else if (Math.abs(parseFloat(angle)) > 2 * Math.PI) {
                 unit = 'deg';
             } else {
                 unit = 'rad';
@@ -84,9 +87,6 @@
 
     function parseRadian(radian, pi) {
         if (pi) {
-            if (!radian) {
-                radian = 1;
-            }
             return mod(radian + 1.5, 2) * Math.PI;
         } else {
             return mod(radian / Math.PI + 1.5, 2) * Math.PI;
