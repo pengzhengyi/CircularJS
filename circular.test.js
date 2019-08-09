@@ -52,7 +52,7 @@ function adjustAngle(angle, pi, unit) {
 
 test('Parse and calibrate angle', () => {
     expect(resolveAngle('0')).toEqual(`${1.5 * Math.PI}rad`);
-    expect(resolveAngle(270)).toEqual('180deg');
+    expect(resolveAngle('270')).toEqual('180deg');
     expect(resolveAngle('0deg')).toEqual('270deg');
     expect(resolveAngle('0grad')).toEqual('300grad');
     expect(resolveAngle('1.2turn')).toEqual('0.95turn');
