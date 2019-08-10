@@ -17,6 +17,39 @@
 
     function placeCircularContainer(element) {
         element.style.position = 'relative';
+        preorderCircularItems(element);
+    }
+
+    /**
+     * Sort according to Two's Complement's bit representation
+     * [0, ... , +inf, -inf, ... , -1]
+     */
+    function circularOrdering(n1, n2) {
+        if (n1 >= 0) {
+            if (n2 >= 0) {
+                return n1 - n2;
+            } else {
+                return -1;
+            }
+        } else {
+            if (n2 >= 0) {
+                return 1;
+            } else {
+                return n1 - n2;
+            }
+        }
+    }
+
+    function preorderCircularItems(containerElement) {
+        const circularElements = Array.from(containerElement.querySelectorAll(`${circularItemSelector}[data-order]`))
+            .sort((circularItem1, circularItem2) => circularOrdering(parseFloat(circularItem1.dataset.order), parseFloat(circularItem2.dataset.order)));
+        const angleBetweenItems = 360 / circularElements.length;
+        circularElements.forEach(function (circularElement, order) {
+            const angle = order * angleBetweenItems;
+            if (!('angle' in circularElement.dataset) || !circularElement.dataset.angle) {
+                circularElement.dataset.angle = angle;
+            }
+        });
     }
 
     function placeCircularItem(element) {
