@@ -141,7 +141,7 @@ Specify the **radius** with `data-radius=<length>` [data attribute](https://deve
     </div>
   ```
   
-  Both generating the below layout:
+  Both generating the layout below:
   ![Result](order-example1.png)
   
   *Order data attribute computes an angle based on positional order of all sibling elements having order attribute (elements not having order attribute does not contribute to ordering).*
@@ -149,4 +149,5 @@ Specify the **radius** with `data-radius=<length>` [data attribute](https://deve
   *When both order data attribute and angle data attribute are present, angle data attribute take precedence, however, the element still contributes to the ordering (its hypothetical order is not occupied).*
 
 
-
+## License
+CircularJS is [MIT licensed](https://github.com/pengzhengyi/CircularJS/blob/master/LICENSE).
