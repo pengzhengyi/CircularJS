@@ -95,6 +95,4 @@ Temporary Items
 
 # Custom Ignores
 .eslintrc.js
-package.json
-package-lock.json
 demo.html
